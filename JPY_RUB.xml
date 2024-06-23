@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<data id="securities">
+<metadata>
+<columns>
+<column name="tradedate" type="date" bytes="10" max_size="0" />
+<column name="tradetime" type="time" bytes="10" max_size="0" />
+<column name="secid" type="string" bytes="36" max_size="0" />
+<column name="rate" type="double" />
+<column name="clearing" type="string" bytes="6" max_size="0" />
+</columns>
+</metadata>
+<rows>
+<row tradedate="2024-05-31" tradetime="18:49:00" secid="JPY/RUB" rate="0.57575" clearing="vk" />
+<row tradedate="2024-05-31" tradetime="13:45:00" secid="JPY/RUB" rate="0.57295" clearing="pk" />
+<row tradedate="2024-05-30" tradetime="18:49:00" secid="JPY/RUB" rate="0.57295" clearing="vk" />
+<row tradedate="2024-05-30" tradetime="13:45:00" secid="JPY/RUB" rate="0.56716" clearing="pk" />
+<row tradedate="2024-05-29" tradetime="18:49:00" secid="JPY/RUB" rate="0.56716" clearing="vk" />
+<row tradedate="2024-05-29" tradetime="13:45:00" secid="JPY/RUB" rate="0.56402" clearing="pk" />
+<row tradedate="2024-05-28" tradetime="18:49:00" secid="JPY/RUB" rate="0.56402" clearing="vk" />
+<row tradedate="2024-05-28" tradetime="13:45:00" secid="JPY/RUB" rate="0.56585" clearing="pk" />
+<row tradedate="2024-05-27" tradetime="18:49:00" secid="JPY/RUB" rate="0.56585" clearing="vk" />
+<row tradedate="2024-05-27" tradetime="13:45:00" secid="JPY/RUB" rate="0.57110" clearing="pk" />
+<row tradedate="2024-05-24" tradetime="18:49:00" secid="JPY/RUB" rate="0.57110" clearing="vk" />
+<row tradedate="2024-05-24" tradetime="13:45:00" secid="JPY/RUB" rate="0.57557" clearing="pk" />
+<row tradedate="2024-05-23" tradetime="18:49:00" secid="JPY/RUB" rate="0.57557" clearing="vk" />
+<row tradedate="2024-05-23" tradetime="13:45:00" secid="JPY/RUB" rate="0.57713" clearing="pk" />
+<row tradedate="2024-05-22" tradetime="18:49:00" secid="JPY/RUB" rate="0.57713" clearing="vk" />
+<row tradedate="2024-05-22" tradetime="13:45:00" secid="JPY/RUB" rate="0.57787" clearing="pk" />
+<row tradedate="2024-05-21" tradetime="18:49:00" secid="JPY/RUB" rate="0.57787" clearing="vk" />
+<row tradedate="2024-05-21" tradetime="13:45:00" secid="JPY/RUB" rate="0.58167" clearing="pk" />
+<row tradedate="2024-05-20" tradetime="18:49:00" secid="JPY/RUB" rate="0.58167" clearing="vk" />
+<row tradedate="2024-05-20" tradetime="13:45:00" secid="JPY/RUB" rate="0.58524" clearing="pk" />
+<row tradedate="2024-05-17" tradetime="18:49:00" secid="JPY/RUB" rate="0.58524" clearing="vk" />
+<row tradedate="2024-05-17" tradetime="13:45:00" secid="JPY/RUB" rate="0.59042" clearing="pk" />
+<row tradedate="2024-05-16" tradetime="18:49:00" secid="JPY/RUB" rate="0.59042" clearing="vk" />
+<row tradedate="2024-05-16" tradetime="13:45:00" secid="JPY/RUB" rate="0.58341" clearing="pk" />
+<row tradedate="2024-05-15" tradetime="18:49:00" secid="JPY/RUB" rate="0.58341" clearing="vk" />
+<row tradedate="2024-05-15" tradetime="13:45:00" secid="JPY/RUB" rate="0.58421" clearing="pk" />
+<row tradedate="2024-05-14" tradetime="18:49:00" secid="JPY/RUB" rate="0.58421" clearing="vk" />
+<row tradedate="2024-05-14" tradetime="13:45:00" secid="JPY/RUB" rate="0.58769" clearing="pk" />
+<row tradedate="2024-05-13" tradetime="18:49:00" secid="JPY/RUB" rate="0.58769" clearing="vk" />
+<row tradedate="2024-05-13" tradetime="13:45:00" secid="JPY/RUB" rate="0.59287" clearing="pk" />
+<row tradedate="2024-05-10" tradetime="18:49:00" secid="JPY/RUB" rate="0.59287" clearing="vk" />
+<row tradedate="2024-05-10" tradetime="13:45:00" secid="JPY/RUB" rate="0.59287" clearing="pk" />
+<row tradedate="2024-05-08" tradetime="18:49:00" secid="JPY/RUB" rate="0.59287" clearing="vk" />
+<row tradedate="2024-05-08" tradetime="13:45:00" secid="JPY/RUB" rate="0.59152" clearing="pk" />
+<row tradedate="2024-05-07" tradetime="18:49:00" secid="JPY/RUB" rate="0.59152" clearing="vk" />
+<row tradedate="2024-05-07" tradetime="13:45:00" secid="JPY/RUB" rate="0.58534" clearing="pk" />
+<row tradedate="2024-05-06" tradetime="18:49:00" secid="JPY/RUB" rate="0.58534" clearing="vk" />
+<row tradedate="2024-05-06" tradetime="13:45:00" secid="JPY/RUB" rate="0.58777" clearing="pk" />
+<row tradedate="2024-05-03" tradetime="18:49:00" secid="JPY/RUB" rate="0.58777" clearing="vk" />
+<row tradedate="2024-05-03" tradetime="13:45:00" secid="JPY/RUB" rate="0.59009" clearing="pk" />
+<row tradedate="2024-05-02" tradetime="18:49:00" secid="JPY/RUB" rate="0.59009" clearing="vk" />
+<row tradedate="2024-05-02" tradetime="13:45:00" secid="JPY/RUB" rate="0.58973" clearing="pk" />
+</rows>
+</data>
+</document>
