@@ -78,11 +78,11 @@ def get_correct_form(number):
 
 def send_email(excel_file, recipient_email, num_rows):
     # Параметры отправки письма
-    sender_email = "futbolnyy@internet.ru"  # Ваш email
+    sender_email = "4stonishing_m@vk.com"  # Ваш email
     sender_password = "12345"  # Ваш пароль
 
-    subject = "Отчет по курсам валют"
-    body = f"Здравствуйте,\n\nВо вложении отчет по курсам валют. В файле содержится {get_correct_form(num_rows)}.\n\nС уважением,\nВаше Имя"
+    subject = "Поддержка RPA"
+    body = f"Здравствуйте!\n\nВо вложении отчет по курсам валют. В файле содержится {get_correct_form(num_rows)}.\n\nhttps://github.com/PRO100CHEL/Parse_XML_to_Python\n\nС уважением,\nМильдзихов А.Д."
 
     # Создание письма
     msg = MIMEMultipart()
