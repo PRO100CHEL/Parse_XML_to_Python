@@ -1,5 +1,11 @@
 import pandas as pd
 import xml.etree.ElementTree as ET
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+import os
 
 
 def parse_xml(xml_file, secid_filter):
@@ -42,17 +48,69 @@ def xml_to_excel(usd_xml_file, jpy_xml_file, excel_file):
     result_df["Результат"] = result_df["Курс USD/RUB"] / result_df["Курс JPY/RUB"]
 
     # Сохранение DataFrame в Excel файл
-    with pd.ExcelWriter(excel_file) as writer:
+    with pd.ExcelWriter(excel_file, engine='openpyxl') as writer:
         result_df.to_excel(writer, index=False, sheet_name='Sheet1')
 
         # Автоширина столбцов и форматирование чисел
         for column in result_df.columns:
             column_width = max(result_df[column].astype(str).map(len).max(), len(column))
             col_idx = result_df.columns.get_loc(column)
-            writer.sheets['Sheet1'].set_column(col_idx, col_idx, column_width, None, {'num_format': '#,##0.00'})
+            writer.sheets['Sheet1'].column_dimensions[
+                writer.sheets['Sheet1'].cell(1, col_idx + 1).column_letter].width = column_width
+            # Финансовый формат
+            for cell in writer.sheets['Sheet1'].iter_rows(min_row=2, min_col=col_idx + 1, max_col=col_idx + 1,
+                                                          max_row=len(result_df) + 1):
+                cell[0].number_format = '#,##0.00'
+
+    return len(result_df)
+
+
+def get_correct_form(number):
+    if 11 <= number % 100 <= 19:
+        return f"{number} строк"
+    elif number % 10 == 1:
+        return f"{number} строка"
+    elif 2 <= number % 10 <= 4:
+        return f"{number} строки"
+    else:
+        return f"{number} строк"
+
+
+def send_email(excel_file, recipient_email, num_rows):
+    # Параметры отправки письма
+    sender_email = "futbolnyy@internet.ru"  # Ваш email
+    sender_password = "12345"  # Ваш пароль
+
+    subject = "Отчет по курсам валют"
+    body = f"Здравствуйте,\n\nВо вложении отчет по курсам валют. В файле содержится {get_correct_form(num_rows)}.\n\nС уважением,\nВаше Имя"
+
+    # Создание письма
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = recipient_email
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(body, 'plain'))
+
+    # Вложение файла
+    attachment = open(excel_file, "rb")
+    part = MIMEBase('application', 'octet-stream')
+    part.set_payload(attachment.read())
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition', f"attachment; filename= {os.path.basename(excel_file)}")
+
+    msg.attach(part)
+    attachment.close()
+
+    # Настройка SMTP сервера и отправка письма
+    with smtplib.SMTP('mail.ru', 587) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, recipient_email, msg.as_string())
 
 
 usd_xml_file = 'USD_RUB.xml'
 jpy_xml_file = 'JPY_RUB.xml'
 excel_file = 'Полученный файл.xlsx'
-xml_to_excel(usd_xml_file, jpy_xml_file, excel_file)
+num_rows = xml_to_excel(usd_xml_file, jpy_xml_file, excel_file)
+send_email(excel_file, '4stonishing_m@vk.com', num_rows)
